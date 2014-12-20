@@ -16,6 +16,19 @@
             .pizzacat h1{
                 color: white;
             }
+            .flyingpizza{
+                background-image: url(http://i.imgur.com/ujMrutG.png);
+                background-size: cover;
+                width: 130px;
+                height: 100px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .clickable{
+                cursor: hand; 
+                cursor: pointer;
+            }
         </style>
     </head>
 
@@ -26,6 +39,16 @@
             <iframe src="http://8tracks.com/mixes/5066982/player_v3_universal" width="300" height="250" style="border: 0px none;"></iframe>
             <p class="_8t_embed_p" style="font-size: 11px; line-height: 12px;"><a href="http://8tracks.com/cutekitty/neat-o-burrito?utm_medium=trax_embed">Neat-o Burrito</a> from <a href="http://8tracks.com/cutekitty?utm_medium=trax_embed">cutekitty</a> on <a href="http://8tracks.com?utm_medium=trax_embed">8tracks Radio</a>.</p>
         </div>
+
+        <div class="flyingpizza clickable"></div>
+
+        <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
+        <script>
+            $('.flyingpizza').click(function(){
+                alert('yum');
+            });
+        </script>
+    
     </body>
 
 </html>
