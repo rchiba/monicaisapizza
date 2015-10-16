@@ -1,0 +1,80 @@
+<html>
+
+    <head>
+        <style>
+            body{
+                background-image: url(http://nice-cool-pics.com/data/media/2/nebula_rcw_49_-_cosmic_construction_zone.jpg);
+                background-size: cover;
+                text-align:center;
+            }
+            h1{
+                color:white;
+            }
+            canvas{
+                cursor:url(http://d14vgdf03cg2x3.cloudfront.net/dqbgcaq7z/image/fetch/w_70,c_limit/http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fawicons%2Fvista-artistic%2F256%2Fcoin-icon.png),auto;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <h1>Random</h1>
+            <canvas id="canvas" width="500" height="500"></canvas>
+        </div>
+    </body>
+
+    <script>
+    MIP = {};
+
+    function init(){
+        canvas = document.getElementById('canvas');
+        ctx = canvas.getContext('2d');
+        draw();
+        canvas.addEventListener('mousemove', ev_mousemove, false);
+    }
+
+    // The mousemove event handler
+    var started = false;
+    function ev_mousemove (ev) {
+        var x, y;
+
+        // Get the mouse position relative to the <canvas> element
+        if (ev.layerX || ev.layerX == 0) { // Firefox
+            x = ev.layerX;
+            y = ev.layerY;
+        } else if (ev.offsetX || ev.offsetX == 0) { // Opera
+            x = ev.offsetX;
+            y = ev.offsetY;
+        }
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.strokeStyle = "rgba(0,200,200,0)";
+        ctx.lineWidth = 0;
+        ctx.arc(x, y, 50, 0, Math.PI*2);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.clip();
+        ctx.drawImage(showingImage,0,0);
+        ctx.restore();
+    }
+
+    function draw() {
+            
+      hiddenImage = new Image();
+      hiddenImage.src= 'http://lh6.googleusercontent.com/-P2aDH1v2AwE/AAAAAAAAAAI/AAAAAAAAAFA/XZBxcXBSK68/photo.jpg';
+
+      showingImage = new Image(); 
+      showingImage.src = 'http://lorempixel.com/500/500/cats/';
+      
+      window.setTimeout(function(){
+        ctx.drawImage(hiddenImage, 0, 0, hiddenImage.width, hiddenImage.height, 0, 0, canvas.width, canvas.height);
+
+      }, 2000);
+      
+    }
+
+    init();
+    </script>
+
+</html>
